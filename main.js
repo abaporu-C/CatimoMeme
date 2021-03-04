@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const fs = requires('fs');
+const fs = require('fs');
 require('dotenv').config();
 
 const eventFiles = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
