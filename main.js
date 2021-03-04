@@ -8,13 +8,13 @@ const commandFolders = fs.readdirSync('./commands')
 
 client.commands = new Discord.Collection();
 
-for(const event of eventFiles){
-    if (event.once){
-        client.once(event.name, (...args) => event.execute(...args, client))
-    }
-    else {
-        client.on(event.name, (...args) => event.execute(...args, client))
-    }
+for (const file of eventFiles) {
+	const event = require(`./events/${file}`);
+	if (event.once) {
+		client.once(event.name, (...args) => event.execute(...args, client));
+	} else {
+		client.on(event.name, (...args) => event.execute(...args, client));
+	}
 }
 
 for(const folder of commandFolders){
