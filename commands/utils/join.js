@@ -1,19 +1,23 @@
+const fs = require('fs');
+
 module.exports = {
     name: 'join',
     description: 'joins voice channel',
     aliases: ['nani'],
-    async execute(message, commandName, client){
+    async execute(message, args, commandName, client){
 
-        const voiceChannel = await message.member.voice.chanel
-        const connection = voiceChannel.join();
+        const voiceChannel = await message.member.voice.channel;
         if(!voiceChannel) return message.reply('You have to be on a voice channel to call this command!');
 
-        if(commandName === 'join'){
-            voiceChannel.join();
-        }
+        const connection = await voiceChannel.join();
+
         if(commandName === 'nani'){
-            const nani = require('../memes/nani.js');
-            nani.execute(message, connection);
+            nani(connection);
         }
     }
+}
+
+const nani = async (connection) => {
+    const sound = fs.readFileSync('../../audio/nani/nani_sound.mp3');
+    connection.play(sound, { type: mp3 });
 }
