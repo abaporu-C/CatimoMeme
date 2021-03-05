@@ -11,7 +11,7 @@ module.exports = {
 
         const connection = await voiceChannel.join();
 
-        if(commandName){
+        if(commandName && commandName !== 'join'){
             const sound = await fs.createReadStream(__dirname.replace('\\commands\\utils', "") + `\\audio\\${commandName}\\${commandName}_sound.mp3`);
             await connection.play(sound, {seek: 0, volume: 0.3});
         }
