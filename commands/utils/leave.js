@@ -1,7 +1,7 @@
 module.exports = {
     name: 'leave',
     description: 'leaves current voice channel',
-    async execute(message, args, commandName, client){
+    async execute(message){
         await message.member.voice.channel.leave();
     }
 }
