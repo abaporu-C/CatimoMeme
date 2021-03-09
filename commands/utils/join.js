@@ -1,9 +1,10 @@
 const fs = require('fs');
+const {aliases} = require('../../joinAliases.json')
 
 module.exports = {
     name: 'join',
     description: 'joins voice channel',
-    aliases: ['nani', 'duel', 'barrel', 'weed', 'hello', 'wow', 'xfile', 'acabou', 'no', 'shit', 'finish', 'objection', 'sad', 'do', 'choppa'],
+    aliases: aliases,
     async execute(message, args, commandName){
 
         const voiceChannel = await message.member.voice.channel;

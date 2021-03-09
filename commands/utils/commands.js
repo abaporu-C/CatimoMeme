@@ -11,7 +11,6 @@ module.exports = {
         }
 
         for(let command of client.commands){
-            console.log(command)
             reply += `${count++}- #${command[0]}\n`
         }
 
