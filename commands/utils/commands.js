@@ -2,7 +2,7 @@ module.exports = {
     name: 'commands',
     description: 'list all commands',
     execute(message, args, commandName, client){
-        const aliases = require('../voice/join').aliases
+        const aliases = require('../../joinAliases.json')["aliases"]
         let reply = "Here is a list of all CatimoMeme's commands:\n\n";
         let count = 1;
 
