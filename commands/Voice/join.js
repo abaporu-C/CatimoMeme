@@ -10,12 +10,10 @@ module.exports = {
         const voiceChannel = await message.member.voice.channel;
         if(!voiceChannel) return message.reply('You have to be on a voice channel to call this command!');
 
-        console.log(this.aliases)
-
         const connection = await voiceChannel.join();
 
         if(commandName && commandName !== 'join'){
-            const sound = await fs.createReadStream(__dirname.replace('\\commands\\voice', "") + `\\audio\\${commandName}_sound.mp3`);
+            const sound = await fs.createReadStream(__dirname + `\\audio\\${commandName}_sound.mp3`);
             await connection.play(sound, {seek: 0, volume: 0.3});
         }
     }
